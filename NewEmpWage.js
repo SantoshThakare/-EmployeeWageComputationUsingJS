@@ -88,10 +88,10 @@ else
 	{
 		return empHrs * WAGE_PER_HOURS;
 	}
-	{
+	
 	let totalEmpHrs = 0;
-	let TotalWorkingDay =0;
-	let empDailyWageArr = new Array();
+	 TotalWorkingDay =0;
+	 empDailyWageArr = new Array();
 	while (totalEmpHrs <= MAX_HRS_IN_MONTH &&
 		TotalWorkingDay < NUM_OF_WORKING_DAY){
 			TotalWorkingDay++;
@@ -104,6 +104,19 @@ else
 			console.log("UC-6 : Total Days  : "  + TotalWorkingDay  +   
 			" Total Hrs : " + totalEmpHrs + " emp wage "  + empwage );
 		}
-	}
+	
+//Array Helper Functions
+//UC 7A- Calc tatal wage using Array for Each traversal or reduce method
 
+let totEmpWage = 0;
+function sum(dailywage){
+	totEmpWage += dailywage;
+}
+empDailyWageArr.forEach(sum);
+console.log("UC-7A: Total Days : " +TotalWorkingDay + 
+" Total hrs : " + totalEmpHrs + " emp wage : " + totEmpWage);
 
+function totalwages(totalwage, dailywage){
+	return totalwage + dailywage;
+}
+console.log("UC-7A- Emp Wage with reduce : " + empDailyWageArr.reduce(totalwages, 0));
