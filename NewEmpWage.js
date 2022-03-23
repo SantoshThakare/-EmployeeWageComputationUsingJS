@@ -21,7 +21,7 @@ else
 
 // UC-2- Use SwitchCase
 
-	{
+{
 	let empHrs =0;
 	 empCheck = Math.floor(Math.random()* 10) % 3; 
 	switch (empCheck){
@@ -36,7 +36,7 @@ else
 	}
 	let empwage = empHrs * WAGE_PER_HOURS;
 	console.log(" UC-2 : Emp Wage  :  "	 + empwage);
-}
+	}
 	
 	// UC-3 - Use Function -Refactor Code
 	
@@ -66,3 +66,19 @@ else
 		let empwage = totalEmpHrs + WAGE_PER_HOURS;
 		console.log(" UC-4 :  total Hrs  :    " + totalEmpHrs + "   empwage  :  " + empwage);
 	}
+	// UC-5-While loop
+	{
+		let totalEmpHrs = 0;
+		let TotalWorkingDay = 0;
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH &&
+			TotalWorkingDay < NUM_OF_WORKING_DAY)
+			{
+				TotalWorkingDay++;
+				let empCheck = Math.floor(Math.random() * 10) % 3;
+				totalEmpHrs += getWorkingHours(empCheck);			
+			}
+			let empwage = totalEmpHrs* WAGE_PER_HOURS;
+			console.log(" UC-5 :  Total Days  :   "  +   TotalWorkingDay + 	
+			"Total Hrs   :   "   +	 totalEmpHrs +   " Empwage   :   "	 + empwage);
+	}
+	
