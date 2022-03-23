@@ -150,10 +150,3 @@ function findfulltimewage(dailywage)
 }
 console.log("UC-7D - full time wage 160 earned by EMployee : " +
 mapDaywithWageArr.find(findfulltimewage));
-//UC-7E-
-function IsAllFullTimeWage(dailywage)
-{
-	return dailywage.includes("160");
-}
-console.log("UC-7E - check All element have full time wage : " +
-fullDayWageArray.every(IsAllFullTimeWage));
