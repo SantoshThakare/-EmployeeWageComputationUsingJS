@@ -133,3 +133,12 @@ return DailyController + " = " + dailywage;
 let mapDaywithWageArr = empDailyWageArr.map(mapDayWithWage);
 console.log("UC-7B-Daily Wage Map");
 console.log(mapDaywithWageArr);
+
+//UC-7C- show Days when Full time wage 160 werw earned
+function fulltimewage(dailywage)
+{
+	return dailywage.includes("160");
+}
+let fullDayWageArray = mapDaywithWageArr.filter(fulltimewage);
+console.log("UC-7C  -  Daily Wage filter when full time wage earn");
+console.log(fullDayWageArray);
