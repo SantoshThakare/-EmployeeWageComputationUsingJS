@@ -4,7 +4,8 @@ const IS_FULL_TIME =2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOURS =25;
-
+const NUM_OF_WORKING_DAY = 20;
+const MAX_HRS_IN_MONTH = 160;
 
 const IS_ABSENT = 0
  let empCheck = Math.floor(Math.random() * 10) % 2;
@@ -20,7 +21,7 @@ else
 
 // UC-2- Use SwitchCase
 
-{
+	{
 	let empHrs =0;
 	 empCheck = Math.floor(Math.random()* 10) % 3; 
 	switch (empCheck){
@@ -35,7 +36,7 @@ else
 	}
 	let empwage = empHrs * WAGE_PER_HOURS;
 	console.log(" UC-2 : Emp Wage  :  "	 + empwage);
-	}
+}
 	
 	// UC-3 - Use Function -Refactor Code
 	
@@ -55,4 +56,13 @@ else
 	let empwage = empHrs * WAGE_PER_HOURS;
 	console.log(" UC-3 : Emp Hours  :  " + empHrs +  " EmpWage  :  " + empwage);
 	
-	
+	// UC-4-For Loop
+	{
+		let totalEmpHrs =0;
+		for (let day = 0; day <NUM_OF_WORKING_DAY; day++){
+			let empCheck = Math.floor(Math.random() * 10) % 3;
+			totalEmpHrs = getWorkingHours(empCheck);
+		}
+		let empwage = totalEmpHrs + WAGE_PER_HOURS;
+		console.log(" UC-4 :  total Hrs  :    " + totalEmpHrs + "   empwage  :  " + empwage);
+	}
