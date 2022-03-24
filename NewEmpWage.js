@@ -92,6 +92,8 @@ else
 	let totalEmpHrs = 0;
 	 TotalWorkingDay =0;
 	 empDailyWageArr = new Array();
+	 let empDailyHrsMap = new Map();
+	 let empDailyWageMap = new Map();
 	while (totalEmpHrs <= MAX_HRS_IN_MONTH &&
 		TotalWorkingDay < NUM_OF_WORKING_DAY){
 			TotalWorkingDay++;
@@ -99,7 +101,8 @@ else
 			let empHrs = getWorkingHours(empCheck);
 			totalEmpHrs +=empHrs;
 			empDailyWageArr.push(calculateDailyWage(empHrs));
-			
+			empDailyHrsMap.set(TotalWorkingDay,empHrs);
+			empDailyWageMap.set(TotalWorkingDay, calculateDailyWage(empHrs));			
 			let empwage = calculateDailyWage(totalEmpHrs); 
 			console.log("UC-6 : Total Days  : "  + TotalWorkingDay  +   
 			" Total Hrs : " + totalEmpHrs + " emp wage "  + empwage );
@@ -184,4 +187,16 @@ console.log("UC8 All map elements:"+Array.from(empDailyWageArr));
 console.log("UC 8-Employee Wage from Map, Total Wage: " 
 			+Array.from(empDailyWageArr.values()).reduce(totalWages,0));
 
+// UC-9A Arrow Function
+const findTotal = (totalval,dailyVal) => 
+{
+	return totalval + dailyVal;
+}
+let count = 0;
+totalEmpHrs = new Array();
+let totalHours = Array.from(empDailyHrsMap.values()).reduce(findTotal, 0);
+let totalsalary = empDailyWageArr.filter(dailyWage => dailyWage > 0)
+					.reduce(findTotal, 0);
+console.log("UC9A - Emp Wage With Arrow : " + " Total Hours: "  + totalHours +
+ " Total Wages: " + totalsalary);
 
