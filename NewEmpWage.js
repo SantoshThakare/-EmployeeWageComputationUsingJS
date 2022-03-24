@@ -137,32 +137,32 @@ console.log(mapDaywithWageArr);
 //UC-7C- show Days when Full time wage 160 were earned
 function fulltimewage(dailywage)
 {
-	return dailywage.includes("160");
+	return dailywage.includes("200");
 }
 let fullDayWageArray = mapDaywithWageArr.filter(fulltimewage);
-console.log("UC-7C  -  Daily Wage filter when full time wage earn");
+console.log("UC-7C  -  Daily Wage filter when full time wage earn : ");
 console.log(fullDayWageArray);
 
 //UC-7D-Find the First Occurence  when Full time wage 160 were earned
 function findfulltimewage(dailywage)
 {
-	return dailywage.includes("160");
+	return dailywage.includes("200");
 }
-console.log("UC-7D - full time wage 160 earned by EMployee : " +
+console.log("UC-7D - full time wage 200 earned by EMployee : " +
 mapDaywithWageArr.find(findfulltimewage));
 //UC-7E-
 function IsAllFullTimeWage(dailywage)
 {
-	return dailywage.includes("160");
+	return dailywage.includes("200");
 }
 console.log("UC-7E - check All element have full time wage : " +
 fullDayWageArray.every(IsAllFullTimeWage));
 //UC-7F-
 function isAnyPartTimeWage(dailywage)
 {
-	return dailywage.includes("80");
+	return dailywage.includes("100");
 }
-console.log("UC-7F - Check if any part time wage "  +
+console.log("UC-7F - Check if any part time wage : "  +
  mapDaywithWageArr.some(isAnyPartTimeWage));
 
 //UC-7G-Find the number of days the Employee Worked
@@ -173,4 +173,15 @@ function totalDaysWorked(numofDays, dailywage)
 }
 console.log("UC-7G-  Number of Days emp worked : " + 
 empDailyWageArr.reduce(totalDaysWorked , 0));
+
+// UC-8
+function totalWages(totalWage,dailyWage)
+{
+   return totalWage+dailyWage;
+}
+
+console.log("UC8 All map elements:"+Array.from(empDailyWageArr));
+console.log("UC 8-Employee Wage from Map, Total Wage: " 
+			+Array.from(empDailyWageArr.values()).reduce(totalWages,0));
+
 
